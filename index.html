@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f5f7fb">
+  <title>AVL Tree Visualizer</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <main class="app-shell">
+    <header class="page-header">
+      <p class="eyebrow">DATA STRUCTURES · INTERACTIVE DEMO</p>
+      <h1>AVL Tree <span>Visualizer</span></h1>
+      <p class="subtitle">Explore how a self-balancing binary search tree works.</p>
+    </header>
+
+    <section class="panel controls" aria-label="Tree controls">
+      <form id="value-form" class="value-form">
+        <label for="value-input">Enter an integer</label>
+        <div class="input-row">
+          <input id="value-input" type="number" step="1" placeholder="For example, 30" required>
+          <button class="button primary" type="submit" data-action="insert">Insert</button>
+          <button class="button secondary" type="button" data-action="delete">Delete</button>
+          <button class="button secondary" type="button" data-action="search">Search</button>
+        </div>
+      </form>
+      <div class="utility-actions">
+        <button class="button quiet" type="button" data-action="min">Find minimum</button>
+        <button class="button quiet" type="button" data-action="max">Find maximum</button>
+        <button class="button reset" type="button" data-action="reset">Reset tree</button>
+      </div>
+    </section>
+
+    <section class="panel tree-panel" aria-label="AVL tree display">
+      <div class="panel-heading">
+        <div><p class="eyebrow">LIVE STRUCTURE</p><h2>Your tree</h2></div>
+        <span id="node-count" class="count-pill">0 nodes</span>
+      </div>
+      <div id="tree-canvas" class="tree-canvas" role="img" aria-label="The AVL tree is empty">
+        <p class="empty-state">Your tree is empty. Insert a number to begin.</p>
+      </div>
+      <p class="tree-key"><span class="key-dot"></span>Each node shows its value and balance factor (BF).</p>
+    </section>
+
+    <section class="info-grid" aria-label="Operation information">
+      <article class="panel info-card"><p class="eyebrow">LAST OPERATION</p><p id="status-message" aria-live="polite">Ready. Try inserting 30, 20, then 10.</p></article>
+      <article class="panel info-card"><p class="eyebrow">AVL RULE</p><p>For every node, the balance factor must be −1, 0, or +1.</p></article>
+    </section>
+    <section id="rotation-panel" class="panel rotation-panel" aria-live="polite" aria-label="Rotation explanation">
+      <div class="rotation-icon" aria-hidden="true">↻</div>
+      <div>
+        <p class="eyebrow">ROTATION EXPLAINED</p>
+        <h2 id="rotation-title">Waiting for an imbalance</h2>
+        <p id="rotation-detail">Insert numbers to see which AVL case is detected and how the tree is rebalanced.</p>
+      </div>
+    </section>
+    <footer>AVL = Adelson-Velsky and Landis · Duplicate values are ignored</footer>
+  </main>
+</body>
+</html>
